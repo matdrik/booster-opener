@@ -16,11 +16,11 @@ node server/server
 ```
 
 ### frontend
-```
-localhost:**8080** или <ваш ip>:**8080**
+```js
+localhost:8080 или <ваш ip>:8080
 ```
 
 ### Сервер
-```
-localhost:**3000** или <ваш ip>:**3000**
+```js
+localhost:3000 или <ваш ip>:3000
 ```
