@@ -20,7 +20,7 @@ app.use(passport.initialize());
 require('./config/passport')(passport);
 
 mongoose.connect('mongodb+srv://admin:admin@cluster0.yahed.mongodb.net/BO_DB?retryWrites=true&w=majority', { useFindAndModify: false, useNewUrlParser: true, useUnifiedTopology: true })
-   .then(db => console.log('[OK] DB is connected'))
+   .then(db => console.log('[OK] Соединение с БД установлено'))
    .catch(err => console.error(err));
 
 app.use('/api/boosters', require('./routes/boosters'));
@@ -40,7 +40,7 @@ app.get('*', (req, res) => {
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`);
+    console.log(`Порт - ${PORT}`);
 })
 
 const ifaces = require('os').networkInterfaces();
@@ -48,4 +48,4 @@ const localhost = Object.keys(ifaces).reduce((host,ifname) => {
     let iface = ifaces[ifname].find(iface => !('IPv4' !== iface.family || iface.internal !== false));
     return iface? iface.address : host;
 }, '127.0.0.1');
-console.log(localhost);
+console.log(`Сервер доступен по ${localhost}:${PORT} или localhost:${PORT}`);

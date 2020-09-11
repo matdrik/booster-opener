@@ -3,7 +3,7 @@ export default {
     USER: state => state.user,
     error: state => state.error,
     authState: state => state.status,
-    isLoggedIn: state => !!state.token,
+    isLoggedIn: state => !!Object.keys(state.user).length,
 
     // ДЛЯ ПОКАЗА КОМПОНЕНТОВ
     CURRENT_SCREEN: state => state.current_screen,

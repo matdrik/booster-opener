@@ -24,7 +24,7 @@
             >
             <div class="bi_booster_cards" v-if="COLL_DATA.boosters.length > 1">
                 <div class="bi_heading">Карт в бустере</div>
-                <div class="bi_text">`
+                <div class="bi_text">
                     {{ BOOSTER_DATA.cardsNum }} карт с номерами<br>
                     от {{ BOOSTER_DATA.range[0] }} до {{ BOOSTER_DATA.range[1] }}
                 </div>
@@ -50,7 +50,6 @@ export default {
     name: 'bo-booster-info',
     data() {
         return {
-            userColl: {},
             collected: false,
             collectedBooster: false,
             isHorizontal: store.getters.BOOSTER_DATA.isHorizontal
@@ -73,7 +72,7 @@ export default {
             } else if (store.getters.isLoggedIn) {
                 this.$store.commit('SET_OPENING_STATE', true)
                 this.$store.commit('SET_BOOSTER_INFO', false)
-            } else if (!store.getters.isLoggedIn) {
+            } else {
                 this.$store.commit('SET_NOTIF_isNotLoggedIn', true)
             }
         },

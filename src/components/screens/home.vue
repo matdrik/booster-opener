@@ -1,9 +1,9 @@
 <template>
     <div class="home">
-        <div class="warn" v-if="!warn">
+        <!-- <div class="warn" v-if="!warn">
             <span>Вы не авторизованы</span>
             <img @click="warn = !warn" src="../../assets/images/icons/crossAlt.png" draggable="false">
-        </div>
+        </div> -->
         <transition name="fade" mode="out-in">
             <div v-if="!IS_OPENING" class="header">
                 <img src="../../assets/images/icons/logo.svg" draggable="false">
@@ -13,7 +13,7 @@
         <transition name="fade" mode="out-in">
             <div v-if="!IS_OPENING" class="header">
                 <div class="money">
-                    <div v-if="isLoggedIn">{{ USER.money }}</div><!-- Деньги реального юзера -->
+                    <div v-if="isLoggedIn">{{ USER.money }}</div>
                     <div v-else>0</div>
                     <img src="../../assets/images/icons/money.png" class="icon" draggable="false">
                 </div>
@@ -55,8 +55,9 @@ export default {
     name: 'bo-boosters',
     data() {
         return {
-            warn: false,
-            selectedHomeColls: ''
+            // warn: Boolean,
+            selectedHomeColls: '',
+            aaa: store.state.token
         }
     },
     components: {
@@ -103,7 +104,7 @@ export default {
     mounted() {
         this.GET_BOOSTERS_FROM_API()
         this.getProfile()
-        this.warn = store.getters.isLoggedIn
+        // this.warn = store.getters.isLoggedIn
         
         this.$store.commit('SET_BOOSTER_DATA', ' ');
         this.$store.commit('SET_BOOSTER_INFO', false);

@@ -52,7 +52,13 @@ export default {
         commit
     }) {
         commit('profile_request');
-        await axios.get('http://192.168.0.105:3000/api/users/profile').then(res => commit('user_profile', res.data.user)) // /api/users/profile
+        await axios.get('http://192.168.0.105:3000/api/users/profile')
+            .then(res => commit('user_profile', res.data.user)) // /api/users/profile
+            .catch(error => {
+                if (error.response.data === "Unauthorized") {
+                    localStorage.removeItem('token');
+                }
+            })
     },
 
     // Выход из аккаунта
