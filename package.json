@@ -8,7 +8,7 @@
     "email": "12graf21@gmail.com",
     "url": "https://vk.com/mar1on"
   },
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
