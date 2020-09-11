@@ -15,7 +15,12 @@ npm run serve
 node server/server
 ```
 
-### 4. В браузере
+### frontend
 ```
-localhost:3000 или <ваш ip>:3000
+localhost:**8080** или <ваш ip>:**8080**
+```
+
+### Сервер
+```
+localhost:**3000** или <ваш ip>:**3000**
 ```
