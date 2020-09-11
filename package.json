@@ -1,7 +1,14 @@
 {
-  "name": "boosteropener-clientside",
-  "version": "0.1.0",
+  "name": "booster_opener",
+  "version": "1.0",
   "private": true,
+  "main": "src/main.js",
+  "author": {
+    "name": "Nikolai Matveenkov",
+    "email": "12graf21@gmail.com",
+    "url": "https://vk.com/mar1on"
+  },
+  "license": "UNLICENSED",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

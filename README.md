@@ -1,24 +1,16 @@
-# boosteropener-clientside
+# BOOSTER OPENER
 
-## Project setup
+### 1. Установка проекта (модулей)
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Запуск frontend части
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Запуск backend части
 ```
-npm run build
+node server/server
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
