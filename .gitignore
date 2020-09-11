@@ -2,6 +2,7 @@
 node_modules
 /dist
 !ideas
+booster-opener.code-workspace
 
 # local env files
 .env.local
