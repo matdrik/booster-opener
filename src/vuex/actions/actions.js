@@ -9,7 +9,7 @@ export default {
     }, user) {
         commit('auth_request')
         try {
-            let res = await axios.post('http://localhost:3000/api/users/login', user)
+            let res = await axios.post('http://localhost:8080/api/users/login', user)
             if (res.data.success) {
                 const token = res.data.token
                 const user = res.data.user
@@ -29,7 +29,7 @@ export default {
     }, userData) {
         try {
             commit('register_request')
-            let res = await axios.post('http://localhost:3000/api/users/register', userData)
+            let res = await axios.post('http://localhost:8080/api/users/register', userData)
             if (res.data.success !== undefined) {
                 commit('register_success')
             }
@@ -42,7 +42,7 @@ export default {
     // Обновление пользователя
     async update({commit}, updateData) {
         try {
-            await axios.put('http://localhost:3000/api/users/userUpdate', updateData)
+            await axios.put('http://localhost:8080/api/users/userUpdate', updateData)
         }
         catch (err) {
             commit('set_err', err)
@@ -54,7 +54,7 @@ export default {
         commit
     }) {
         commit('profile_request')
-        await axios.get('http://localhost:3000/api/users/profile')
+        await axios.get('http://localhost:8080/api/users/profile')
             .then(res => commit('user_profile', res.data.user))
             .catch(error => {
                 if (error.response.data === "Unauthorized") {
@@ -77,7 +77,7 @@ export default {
     // Получить коллекции и бустеры
     async GET_BOOSTERS_FROM_API({commit}) {
         try {
-            const boosters = await axios('http://localhost:3000/api/boosters', {
+            const boosters = await axios('http://localhost:8080/api/boosters', {
                 method: "GET"
             })
             commit('SET_BOOSTERS_TO_STATE', boosters.data)

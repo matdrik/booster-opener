@@ -3,7 +3,7 @@
         <div
             @click="hideCard"
             class="opening_card_container"
-            v-show="OPENING_CARDS_COUNT === openingCard_data.id"
+            v-if="OPENING_CARDS_COUNT === openingCard_data.id"
         >
             <video
                 class="card_effect"

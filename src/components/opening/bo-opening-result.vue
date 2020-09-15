@@ -98,6 +98,7 @@ export default {
     overflow-y: scroll;
     align-items: center;
     justify-content: center;
+    max-width: 1170px;
 }
 .opening_btns {
     display: flex;

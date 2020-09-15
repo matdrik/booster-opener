@@ -13,18 +13,18 @@ router.post('/', async (req, res) => {
    res.json({state: 'success'});
 });
 
-router.get('/:id', async (req, res) => {
-   res.json(await Booster.findById(req.params.id));
-});
+// router.get('/:id', async (req, res) => {
+//    res.json(await Booster.findById(req.params.id));
+// });
 
-router.put('/:id', async (req, res) => {
-   await Booster.findByIdAndUpdate(req.params.id, req.body);
-   res.json({state: 'updated'});
-});
+// router.put('/:id', async (req, res) => {
+//    await Booster.findByIdAndUpdate(req.params.id, req.body);
+//    res.json({state: 'updated'});
+// });
 
-router.delete('/:id', async (req, res) => {
-   await Booster.findByIdAndRemove(req.params.id);
-   res.json({state: 'deleted'});
-});
+// router.delete('/:id', async (req, res) => {
+//    await Booster.findByIdAndRemove(req.params.id);
+//    res.json({state: 'deleted'});
+// });
 
 module.exports = router;

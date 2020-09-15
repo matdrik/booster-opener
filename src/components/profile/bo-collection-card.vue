@@ -97,7 +97,6 @@ export default {
     },
     methods: {
         ...mapMutations([
-            'user_profile',
             'user_money'
         ]),
         ...mapActions([

@@ -1,5 +1,5 @@
 <template>
-    <div class="notif notif_red" @click="hide">
+    <div class="notif notif_red" @click="$store.commit('SET_NOTIF_isNotLoggedIn', false)">
         <div class="notif_icon">!</div>
         <div class="notif_text">
             <div
@@ -20,14 +20,11 @@ export default {
         ...mapMutations([
             'SET_CURRENT_SCREEN',
             'SET_NOTIF_isNotLoggedIn'
-        ]),
-        hide() {
-            this.$store.commit('SET_NOTIF_isNotLoggedIn', false)
-        }
+        ])
     },
     mounted() {
         setTimeout(() => {
-            this.hide()
+            this.$store.commit('SET_NOTIF_isNotLoggedIn', false)
         }, 3000);
     }
 }

@@ -29,13 +29,15 @@ export default {
 
 <style>
 .bo-notifs {
-    right: 0;
-    bottom: 0;
+    right: 50px;
+    bottom: 20px;
     display: flex;
     position: absolute;
     align-items: center;
     flex-direction: column;
     justify-content: flex-end;
+    max-width: 340px;
+    width: 100%;
 }
 .notif {
     width: 100%;
@@ -43,11 +45,9 @@ export default {
     padding: 0 10px;
     cursor: pointer;
     font-size: 18px;
-    max-width: 340px;
     border-radius: 5px;
     align-items: center;
     background: #141414;
-    margin: 0 10px 10px 0;    
     justify-content: center;    
     box-shadow: 0 0 10px rgb(255 214 0 / .2);
 }

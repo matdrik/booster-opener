@@ -1,4 +1,4 @@
-<template>
+// <template>
   <div class="bo-coll" v-if="coll_data.cards.length !== 0">
         <div class="coll_name" @click="isHidden = !isHidden">
             <span>{{ coll_data.name }}</span>
@@ -11,10 +11,14 @@
         </div>
         <transition name="fade" mode="out-in">
             <div class="progress_sort header">
-                <span class="progress">
-                    {{ coll_data.cards.length }} из {{ coll_data.cardsInColl }}
-                </span>
-                <div class="sort" v-if="!isHidden">
+                <div class="flex">
+                    <span class="progress">
+                        {{ coll_data.cards.length }} из {{ coll_data.cardsInColl }}
+                    </span>
+                    <div class="btn" v-if="!isHidden" @click="saleRepeats()">Продать повторы</div>
+                </div>
+
+                <div class="flex sort" v-if="!isHidden">
                     <select v-model="sortField" @change="sort(sortField, sortType)">
                         <option value="id" selected>по времени</option>
                         <option value="price">по цене</option>
@@ -42,7 +46,9 @@
 </template>
 
 <script>
+import store from '../../vuex/store'
 import boCollectionCard from './bo-collection-card'
+import { mapGetters, mapActions, mapMutations } from 'vuex'
 
 export default {
     name: 'bo-coll',
@@ -64,14 +70,46 @@ export default {
             }
         }
     },
-    computed: {},
+    computed: {
+        ...mapGetters([
+            'USER'
+        ]),
+    },
     methods: {
+        ...mapActions([
+            'update'
+        ]),
+        ...mapMutations([
+            'user_money'
+        ]),
         sort(field, type) {
             if (type === 'desc') {
                 this.coll_data.cards.sort((a, b) => a[field]> b[field] ? 1 : -1).reverse()
             } else if (type === 'asc') {
                 this.coll_data.cards.sort((a, b) => a[field]> b[field] ? 1 : -1)
             }            
+        },
+        currentCollInUser() { // объект текущей коллекции в коллекциях юзера
+            return store.getters.USER.colls.find(colls => colls.coll === this.coll_data.coll)
+        },
+        saleRepeats() {
+            let repeatCount = 0
+            // let allRepeats = 0
+            let repeatsPrice = 0
+            for (let i = 0; i < this.currentCollInUser().cards.length; i ++) {
+                if (this.currentCollInUser().cards[i].count > 1) {
+                    repeatCount++
+                    let count = this.currentCollInUser().cards[i].count // -1
+                    // allRepeats += (count -1)
+                    for (let q = 0; q < count-1; q++) {
+                        this.currentCollInUser().cards[i].count--
+                        repeatsPrice += this.currentCollInUser().cards[i].price
+                    }
+                }
+            }
+            this.$store.commit('user_money', store.getters.USER.money + repeatsPrice)
+            if (repeatCount !== 0) this.update(store.getters.USER)
+                else console.log('Повторок нет')            
         }
     }
 }
@@ -109,15 +147,11 @@ export default {
 .progress {
     opacity: .6;
     font-size: 18px;
-}
-.sort {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-right: 10px;
 }
 .sort > select {
     padding: 5px;
-    border: none;    
+    border: none;
     height: 30px;
     color: white;
     font-size: 14px;

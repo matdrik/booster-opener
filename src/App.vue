@@ -99,6 +99,18 @@ body {
   flex-direction: column;
   justify-content: flex-start;
 }
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.btn {
+  background: white;
+  color: black;
+  padding: 5px;
+  cursor: pointer;
+}
 .header {
   width: 100%;
   display: flex;
@@ -120,7 +132,7 @@ select {
   padding: 5px;
   border: none;
   color: white;  
-  width: 100%;
+  /* width: 100%; */
   height: 40px;
   font-size: 18px;
   cursor: pointer;

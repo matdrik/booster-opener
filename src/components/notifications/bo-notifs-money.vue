@@ -1,5 +1,5 @@
 <template>
-    <div class="notif" @click="hide">
+    <div class="notif" @click="$store.commit('SET_NOTIF_isNotEnoughMoney', false)">
         <div class="notif_icon">!</div>
         <div class="notif_text">
             Недостаточно средств для покупки бустера
@@ -14,14 +14,11 @@ export default {
     methods: {
         ...mapMutations([
             'SET_NOTIF_isNotEnoughMoney'
-        ]),
-        hide() {
-            this.$store.commit('SET_NOTIF_isNotEnoughMoney', false)
-        }
+        ])
     },
     mounted() {
         setTimeout(() => {
-            this.hide()
+            this.$store.commit('SET_NOTIF_isNotEnoughMoney', false)
         }, 3000);
     }
 }
