@@ -2,19 +2,18 @@
   "name": "booster_opener",
   "version": "1.0.0",
   "private": true,
-  "main": "src/main.js",
   "author": {
     "name": "Nikolai Matveenkov",
     "email": "12graf21@gmail.com",
     "url": "https://vk.com/mar1on"
   },
-  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "start": "node server/server"
   },
+  "main": "src/main.js",
   "dependencies": {
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
@@ -29,14 +28,14 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "vanilla-tilt": "^1.7.0",
-    "vue": "^2.6.11",
+    "vue": "^2.6.12",
     "vue-router": "^3.3.4",
     "vuex": "^3.5.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.4.0",
-    "@vue/cli-plugin-eslint": "~4.4.0",
-    "@vue/cli-service": "~4.4.0",
+    "@vue/cli-plugin-babel": "^4.5.6",
+    "@vue/cli-plugin-eslint": "^4.5.6",
+    "@vue/cli-service": "^4.5.6",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
@@ -60,5 +59,6 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "license": "MIT"
 }
